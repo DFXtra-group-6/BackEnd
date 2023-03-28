@@ -1,11 +1,21 @@
 import express from "express";
 import mongoose from "mongoose";
+<<<<<<< Updated upstream
 import { config } from 'dotenv';
 import cors from 'cors';
 
 import { profile } from './src/routes/profile.route.js';
+=======
+import { config } from "dotenv";
+import bodyParser from "body-parser";
+
+import { profile } from "./src/routes/profile.route.js";
+import { login } from "./src/routes/login.route.js";
+config();
+>>>>>>> Stashed changes
 
 config({ path: `.env.${process.env.NODE_ENV}` });
+app.use(bodyParser.json());
 
 const port = process.env.PORT;
 const host = process.env.HOST;
@@ -20,8 +30,13 @@ const main = async () => {
 
 main().catch(err => console.log(err));
 
+<<<<<<< Updated upstream
 app.use(`/profile`, profile);
 
+=======
+app.use(`/`, profile);
+app.use("/login", login);
+>>>>>>> Stashed changes
 const server = app.listen(port, () => {
     const SERVERHOST = server.address().address;
     const SERVERPORT = server.address().port;
