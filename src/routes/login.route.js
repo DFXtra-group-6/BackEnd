@@ -31,10 +31,8 @@ import User from "../Models/user.model.js";
 const router = express.Router();
 
 router.route("/").post(async (req, res) => {
-  const foundUser = await User.findOne({ email: req.body.email });
-  console.log(foundUser);
-  console.log(req.body);
-  res.send(req.body);
+    const foundUser = await User.findOne({ email: req.body.email });
+    res.send(req.body);
 });
 
 // authRouter.post(/login, [

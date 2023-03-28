@@ -1,5 +1,4 @@
 {
-<<<<<<< Updated upstream
     "name": "backend",
     "description": "",
     "version": "1.0.0",
@@ -24,45 +23,13 @@
     "homepage": "https://github.com/DFXtra-group-6/BackEnd#readme",
     "dependencies": {
         "cors": "^2.8.5",
+        "body-parser": "^1.20.2",
         "dotenv": "^16.0.3",
         "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.0",
         "mongoose": "^7.0.3"
     },
     "devDependencies": {
         "mocha": "^10.2.0"
     }
-=======
-  "name": "backend",
-  "description": "",
-  "version": "1.0.0",
-  "main": "server.js",
-  "type": "module",
-  "scripts": {
-    "test": "NODE_ENV=test mocha --timeout=10000 --exit",
-    "start": "NODE_ENV=development nodemon index",
-    "start-win": "SET NODE_ENV=development&& nodemon index",
-    "test-win": "SET NODE_ENV=test&& mocha --timeout=10000 --exit"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DFXtra-group-6/BackEnd.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DFXtra-group-6/BackEnd/issues"
-  },
-  "homepage": "https://github.com/DFXtra-group-6/BackEnd#readme",
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.3"
-  },
-  "devDependencies": {
-    "mocha": "^10.2.0"
-  }
->>>>>>> Stashed changes
 }
