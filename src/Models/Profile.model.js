@@ -9,9 +9,9 @@ const profileSchema = new mongoose.Schema({
     tagline: { type: String },
     overview: { type: String },
     socials: {
-        youtube: { type: URL },
-        github: { type: URL },
-        linkedin: { type: URL }
+        youtube: { type: String },
+        github: { type: String },
+        linkedin: { type: String }
     },
     experience: [
         {
@@ -70,6 +70,6 @@ const profileSchema = new mongoose.Schema({
     ]
 });
 
-const Profile = mongoose.model(`Profile`, userSchema);
+const Profile = mongoose.model(`Profile`, profileSchema);
 
 export default Profile;

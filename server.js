@@ -1,6 +1,7 @@
-import { Express } from "express";
+import express from "express";
 import mongoose from "mongoose";
 import { config } from 'dotenv';
+import cors from 'cors';
 
 import { profile } from './src/routes/profile.route.js';
 
@@ -9,6 +10,7 @@ config({ path: `.env.${process.env.NODE_ENV}` });
 const port = process.env.PORT;
 const host = process.env.HOST;
 const app = express();
+app.use(cors());
 
 const main = async () => {
     console.log(`Connecting to DB @ ${process.env.DB_URI}`);
@@ -18,7 +20,7 @@ const main = async () => {
 
 main().catch(err => console.log(err));
 
-app.use(`/`, profile);
+app.use(`/profile`, profile);
 
 const server = app.listen(port, () => {
     const SERVERHOST = server.address().address;
