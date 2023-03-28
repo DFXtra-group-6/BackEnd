@@ -1,2 +1,17 @@
 import mongoose from "mongoose";
-//testing if this works
+
+const User = mongoose.model(
+    `Login`,
+    new mongoose.Schema({
+        email: String,
+        password: String,
+        profile: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Profile"
+            }
+        ]
+    })
+);
+
+export default Login;
