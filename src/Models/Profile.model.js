@@ -27,7 +27,7 @@ const profileSchema = new mongoose.Schema({
     ],
     feedback: [
         {
-            user: String,
+            user: { type: String },
             userRole: { type: String },
             text: { type: String }
         }
