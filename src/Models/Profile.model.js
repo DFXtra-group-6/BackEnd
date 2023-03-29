@@ -1,9 +1,6 @@
 import mongoose from "mongoose";
 const profileSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-    },
+    email: String,
     name: { type: String },
     pronouns: { type: String },
     tagline: { type: String },
@@ -30,10 +27,7 @@ const profileSchema = new mongoose.Schema({
     ],
     feedback: [
         {
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Profile"
-            },
+            user: String,
             userRole: { type: String },
             text: { type: String }
         }
