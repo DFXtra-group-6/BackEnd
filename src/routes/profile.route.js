@@ -7,14 +7,22 @@ router.get('/:id',
     async (req, res) => {
         try {
             console.dir(req.params.id)
-            console.log('hello from profile get')
             const profile = await Profile.findOne({ user: req.params.id })
-            console.dir(profile)
             res.json(profile);
         }
         catch {
 
         }
     });
+
+router.put('/:id',
+    async (req, res) => {
+        try {
+            await Profile.findOneAndUpdate({ user: req.body.id }, { $push: req.body.data })
+        }
+        catch (err) {
+            console.dir(err)
+        }
+    })
 
 export { router as profile };

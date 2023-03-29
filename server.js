@@ -6,6 +6,8 @@ import bodyParser from "body-parser";
 
 import { profile } from "./src/routes/profile.route.js";
 import { login } from "./src/routes/login.route.js";
+import { register } from "./src/routes/register.route.js";
+
 config({ path: `.env.${process.env.NODE_ENV}` });
 
 const port = process.env.PORT;
@@ -24,6 +26,7 @@ main().catch(err => console.log(err));
 
 app.use(`/profile`, profile);
 app.use("/", login);
+app.use('/register', register);
 
 const server = app.listen(port, () => {
     const SERVERHOST = server.address().address;
