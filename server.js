@@ -24,6 +24,7 @@ main().catch(err => console.log(err));
 
 app.use(`/profile`, profile);
 app.use("/", login);
+
 const server = app.listen(port, () => {
     const SERVERHOST = server.address().address;
     const SERVERPORT = server.address().port;

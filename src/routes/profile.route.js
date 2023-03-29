@@ -3,11 +3,14 @@ import Profile from "../Models/Profile.model.js";
 
 const router = express.Router();
 
-router.get('/',
+router.get('/:id',
     async (req, res) => {
         try {
-            const profile = await Profile.find({}) // sends all profiles, return array, findOne returns object?
-            res.json(profile[0])
+            console.dir(req.params.id)
+            console.log('hello from profile get')
+            const profile = await Profile.findOne({ user: req.params.id })
+            console.dir(profile)
+            res.json(profile);
         }
         catch {
 
