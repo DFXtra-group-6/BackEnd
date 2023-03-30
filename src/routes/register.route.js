@@ -14,11 +14,13 @@ router.post('/',
                 const user = new User({
                     email: req.body.email,
                     password: hashedPassword,
+
                 });
                 await user.save()
                     .then(() => {
                         const obj = {};
                         obj.user = user._id;
+                        obj.name = req.body.name;
                         Profile.create(obj);
                         return res.status(200).send({ message: "Registration successful", user })
                     })

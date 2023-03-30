@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const profileSchema = new mongoose.Schema({
-    user: String,
+    user: { type: String, default: 'Hulk Hogan' },
     name: { type: String },
     pronouns: { type: String },
     tagline: { type: String },
