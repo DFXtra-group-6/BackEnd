@@ -16,11 +16,11 @@ router.post('/',
                     password: hashedPassword,
                 });
                 await user.save()
-                    .then((result) => {
+                    .then(() => {
                         const obj = {};
                         obj.user = user._id;
                         Profile.create(obj);
-                        return res.status(200).send({ message: "Registration successful", result })
+                        return res.status(200).send({ message: "Registration successful", user })
                     })
                     .catch(() => { return res.status(400).send({ message: 'This user already exists' }) })
             })

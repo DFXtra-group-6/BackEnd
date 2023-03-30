@@ -6,9 +6,9 @@ const profileSchema = new mongoose.Schema({
     tagline: { type: String },
     overview: { type: String },
     socials: {
-        youtube: { type: String },
-        github: { type: String },
-        linkedin: { type: String }
+        youtube: { type: String, default: 'https://youtube.com' },
+        github: { type: String, default: 'https://github.com' },
+        linkedin: { type: String, default: 'https://linkedin.com' }
     },
     experience: [
         {
@@ -47,11 +47,12 @@ const profileSchema = new mongoose.Schema({
         }
     ],
     dueDiligenceChecks: {
-        disclosure: { type: Boolean },
-        identity: { type: Boolean },
-        credit: { type: Boolean },
-        rightToWork: { type: Boolean },
-        education: { type: Boolean }
+
+        identity: { type: Boolean, default: false },
+        disclosure: { type: Boolean, default: false },
+        credit: { type: Boolean, default: false },
+        rightToWork: { type: Boolean, default: false },
+        education: { type: Boolean, default: false }
     },
     interests: [
         {

@@ -6,7 +6,6 @@ const router = express.Router();
 router.get('/:id',
     async (req, res) => {
         try {
-            console.dir(req.params.id)
             const profile = await Profile.findOne({ user: req.params.id })
             res.json(profile);
         }
@@ -18,7 +17,12 @@ router.get('/:id',
 router.put('/:id',
     async (req, res) => {
         try {
-            await Profile.findOneAndUpdate({ user: req.body.id }, { $push: req.body.data })
+            // Checks if data is an array
+            if (Array.isArray(req.body.data)) {
+                await Profile.findOneAndUpdate({ user: req.body.id }, { $push: req.body.data })
+            }
+            // If it isn't it adds slightly differently
+            await Profile.findOneAndUpdate({ user: req.body.id }, req.body.data)
         }
         catch (err) {
             console.dir(err)
